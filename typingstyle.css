@@ -1,6 +1,6 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #333;
+    font-family: Arial, Helvetica, sans-serif; 
+    background: #333; // Dark background
     text-align: center;
     margin: 0;
     padding: 0;
@@ -24,8 +24,8 @@ button {
     margin-top: 20px;
     padding: 10px 20px;
     font-size: 20px;
-    background-color: #FFD700;
-    color: black;
+    background-color: #FFD700; // Bright colour buttons
+    color: black; // Dark texts
     border: none;
     border-radius: 5px;
     cursor: pointer;
