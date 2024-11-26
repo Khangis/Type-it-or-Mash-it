@@ -11,8 +11,14 @@
           {
             "src": "Type it or Mash it.png",
             "type": "image/png",
-            "sizes": "500x500",
+            "sizes": "192x192",
             "purpose": "any"
           }
+         { 
+            "src": "Type it or Mash it.png",
+            "type": "image/png",
+            "sizes": "512x512",
+            "purpose": "any"
+         }
     ]
   }
