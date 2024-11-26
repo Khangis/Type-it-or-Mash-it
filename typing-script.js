@@ -7,6 +7,7 @@ const speedtypeResult = document.getElementById("speedtype-result");
 
 startSpeedButton.disabled = true;
 let excerpts = [];
+let startTime;
 
 // This function will fetch excerpts from Firestore
 export async function fetchExcerpts(db) {
@@ -50,20 +51,25 @@ startSpeedButton.addEventListener("click", () => {
 
 
 textBox.addEventListener("input", () => {
-    if (textBox.value.trim() === testText.textContent.trim()) {
-        const endTime = new Date().getTime();
-        const timeTaken = (endTime - startTime) / 1000;
-        const wordsPerMinute = (testText.textContent.split(" ").length / timeTaken) * 60;
+    const userInput = textBox.value.trim();
+    const targetText = testText.textContent.trim();
 
-        // This calculates for the Accuracy
-        const accuracy = calculateAccuracy(textBox.value, testText.textContent);
+    // Allow the user to finish typing only when the input matches the target text (ignoring extra spaces/casing)
+    if (userInput.toLowerCase().replace(/\s+/g, '') === targetText.toLowerCase().replace(/\s+/g, '')) {
+        const endTime = new Date().getTime();
+        const timeTaken = (endTime - startTime) / 1000;  // Time in seconds
+        const wordsPerMinute = (targetText.split(" ").length / timeTaken) * 60;  // Words per minute
+
+        // Calculate typing accuracy
+        const accuracy = calculateAccuracy(userInput, targetText);
+
+        // Display the results
         speedtypeResult.textContent = `Finished! You've typed at ${Math.round(wordsPerMinute)} WPM with ${accuracy}% accuracy!`;
-        textBox.disabled = true;
+        textBox.disabled = true;  // Disable text box after finishing the test
     }
 });
-
 // The function used to calculate accuracy:
-function CalculateAccuracy(userInput, targetText) {
+function calculateAccuracy(userInput, targetText) {
     const userWords = userInput.split("");
     const targetWords = targetText.split("");
     let correctChars = 0; // Starting at 0 correct character typed
@@ -75,5 +81,4 @@ function CalculateAccuracy(userInput, targetText) {
     }
 
     return Math.round((correctChars / targetWords.length) * 100);
-
 }
