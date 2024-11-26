@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang = "en-US" dir = "ltr">
+    <head>
+        <meta charset = "UTF-8" />
+        <meta name = "viewport" content = "width=device-width,initial-scale=1" />
+        <link rel = "stylesheet" href = "typingstyle.css">
+        <link rel = "icon" type = "image/gif" href = "kick-him.gif">
+        <title>Mashing Speed Test</title>
+        <link rel = "manifest" href = "manifest.json">
+    </head>
+    <body>
+        <div class = "container">
+            <h1>Mashing Speed Test - Wild and Crazy</h1>
+            <h2>Mash as many keys as you can!</h2>
+            
+            <img src = "kick-him.gif" alt = "Kick Him GIF" style = "max-width: 100%; height: auto;">
+
+            <p>Set your time limit:</p>
+            <input type = "number" id = "time-limit" placeholder = "Enter time (in seconds)" min = "1" value = "10">
+            <button id = "start-mashing">Start Mashing</button>
+            <p id = "key-count">Key Mashed: 0</p>
+            <p id = "mashing-result"></p>
+            <a href = "index.html"><button>Back to Home</button></a>
+            <a href = "speedtype-test.html"><button>Typing Speed Test - Fast and Precise</button></a>
+        </div>
+        <script src = "mashing-script.js"></script>
+    </body>
+</html>

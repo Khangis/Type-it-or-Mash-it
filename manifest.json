@@ -1,0 +1,18 @@
+{
+    "lang": "en-us",
+    "name": "Type it? Or Mash it?",
+    "short_name": "Type or Mash?",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "rgb(51, 51, 51)",
+    "theme_color": "rgb(51, 51, 51)",
+    "orientation": "any",
+    "icons": [
+          {
+            "src": "Type it or Mash it.png",
+            "type": "image/png",
+            "sizes": "500x500",
+            "purpose": "any"
+          }
+    ]
+  }
