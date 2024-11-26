@@ -2,15 +2,15 @@ const CACHE_NAME = 'Type it or Mash it' // Define cache name as "Type it or Mash
 const urlsToCache = [
     '/',
     '/index.html',
-    'mashing-test.html',
-    'speedtype-test.html',
-    'typingstyle.css',
-    'mashing-script.js',
-    'typing-script.js',
-    'manifest.json',
-    'kick-him.gif',
-    'type.gif',
-    'Type it or Mash it PWA logo.png'
+    '/mashing-test.html',
+    '/speedtype-test.html',
+    '/typingstyle.css',
+    '/mashing-script.js',
+    '/typing-script.js',
+    '/manifest.json',
+    '/images/kick-him.gif',
+    '/images/type.gif',
+    '/images/Type it or Mash it PWA logo.png'
 ];
 
 // Install event into SW
