@@ -5,8 +5,8 @@
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <link rel="stylesheet" href="typingstyle.css">
         <link rel="icon" type="image/gif" href="type.gif">
-        <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js"></script> // Firebase SDK
+        <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js"></script> // Firestore SDK
         <title>Typing Speed Test</title>
     </head>
     <body>
@@ -14,13 +14,14 @@
             <h1>Typing Speed Test - Fast and Precise</h1>
             <p id="test-text">Type the given excerpt as quickly as you can!</p>
             <img src="type.gif" alt="Type GIF" style="max-width: 100%; height: auto;">
-            <textarea id="text-box" placeholder="Start typing here..."></textarea>
+            <textarea id="text-box" placeholder="Start typing here..."></textarea> //User input in text box
             <button id="start-speed">Start Typing Test</button>
             <p id="speedtype-result"></p>
             <a href = "index.html"><button>Back to Home</button></a>
             <a href = "mashing-test.html"><button>Mashing Speed Test - Wild and Crazy</button></a>
         </div>
         <script type="module">
+            // Initialise Firebase to make Database
             import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
             import { getFirestore } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
 
