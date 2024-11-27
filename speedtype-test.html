@@ -1,33 +1,46 @@
 <!DOCTYPE html>
-<html lang = "en-US" dir = "ltr">
-  <head>
-    <meta charset = "UTF-8" />
-    <meta name = "viewport" content = "width=device-width,initial-scale=1" />
-    <link rel = "stylesheet" href = "typingstyle.css">
-    <link rel = "icon" type = "image/png" href="Type it Or Mash it PWA logo.png"> // Link to the main stylesheet
-    <link rel = "manifest" rel = "stylesheet" href="manifest.json"> // Link to the Web App Manifest file
-    <title>Type it or Mash it</title>
-  </head>
-  <body>
-    <div class = "container"> 
-      <h1>Type it? or <span style="color: gold">Mash it?</span></h1> 
-      <h2>A minimalist keyboard test</h2>
-      
-      <img src = "Type it Or Mash it PWA logo.png" alt = "Type it or Mash it Logo" style = "max-width: 100%; height: auto;">
+<html lang="en-US" dir="ltr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <link rel="stylesheet" href="typingstyle.css">
+        <link rel="icon" type="image/gif" href="type.gif">
+        <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js"></script> // Firebase SDK
+        <script src="https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js"></script> // Firestore SDK
+        <title>Typing Speed Test</title>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Typing Speed Test - Fast and Precise</h1>
+            <p id="test-text">Type the given excerpt as quickly as you can!</p>
+            <img src="type.gif" alt="Type GIF" style="max-width: 100%; height: auto;">
+            <textarea id="text-box" placeholder="Start typing here..."></textarea>
+            <button id="start-speed">Start Typing Test</button>
+            <p id="speedtype-result"></p>
+            <a href = "index.html"><button>Back to Home</button></a>
+            <a href = "mashing-test.html"><button>Mashing Speed Test - Wild and Crazy</button></a>
+        </div>
+        <script type="module">
+            // Initialise Firebase to make Database
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+            import { getFirestore } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
 
-      <div id = "mode-selection"> 
-        <a href = "speedtype-test.html"><button>Typing Speed Test - Fast and Precise</button></a> 
-        <a href = "mashing-test.html"><button>Mashing Speed Test - Wild and Crazy</button></a> 
-      </div>
-    </div>
-    <script>
-      if ('serviceWorker' in navigator) {
-          navigator.serviceWorker.register('/service-worker.js').then((registration) => {
-            console.log('Service Worker registered with scope:', registration.scope);
-    }).catch((error) => {
-            console.error('Service Worker registration failed:', error);
-    });
-}
-    </script>
-  </body>
+            const firebaseConfig = {
+                apiKey: "AIzaSyC6Iyxgr6hpoYAILh0cXyYc0LS3Y6tMmew",
+                authDomain: "type-it-or-mash-it.firebaseapp.com",
+                projectId: "type-it-or-mash-it",
+                storageBucket: "type-it-or-mash-it.appspot.com",
+                messagingSenderId: "330137715862",
+                appId: "1:330137715862:web:d56c853193a0a6af4ceeb7",
+                measurementId: "G-HSGN6G074R"
+            };
+
+            const app = initializeApp(firebaseConfig);
+            const db = getFirestore(app);
+
+            // Fetch excerpts when the page loads
+            import { fetchExcerpts } from './typing-script.js';
+            fetchExcerpts(db);
+        </script>
+    </body>
 </html>
